@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import App from "./App";
 
-import Hello from "./hello";
+import Card from './card'
 
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    <Hello greeting={'Hello we are pass through data, aka props'} secondExample={'second template binding example'}/>
+    <div>
+      <Card />
+      <Card />
+      <Card />
+    </div>
   </React.StrictMode>,
   document.getElementById("root"),
 );
