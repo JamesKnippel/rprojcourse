@@ -10,7 +10,7 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Hello greeting={'Hello we are pass through data, aka props'}/>
+    <Hello greeting={'Hello we are pass through data, aka props'} secondExample={'second template binding example'}/>
   </React.StrictMode>,
   document.getElementById("root"),
 );
