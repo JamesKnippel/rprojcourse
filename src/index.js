@@ -9,9 +9,9 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <React.StrictMode>
     <div>
-      <Card />
-      <Card />
-      <Card />
+      <Card weight={Math.random()}/>
+      <Card weight={Math.random()}/>
+      <Card weight={Math.random()}/>
     </div>
   </React.StrictMode>,
   document.getElementById("root"),
