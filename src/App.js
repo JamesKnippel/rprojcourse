@@ -18,7 +18,7 @@ class App extends React.Component {
             rel="noopener noreferrer"
           >
             Learn React
-          </a>ß
+          </a>
         </header>
       </div>
     );
