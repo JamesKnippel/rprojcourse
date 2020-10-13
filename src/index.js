@@ -4,6 +4,8 @@ import "./index.scss";
 
 import Card from './card'
 
+import 'tachyons';
+
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
