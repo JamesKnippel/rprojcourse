@@ -1,4 +1,8 @@
+// @flow
+
 import React from 'react';
+
+
 
 const Card = (props) => {
   // Can only return one element per react component, unless it's an array presumably
