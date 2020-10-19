@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 
 import CardList from './CardList';
+import App from './App';
 
 import 'tachyons';
 
@@ -12,7 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CardList robots={ robots } />
+    <App />
   </React.StrictMode>,
   document.getElementById("root"),
 );
