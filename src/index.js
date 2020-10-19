@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 
-import Card from './card'
+import CardList from './CardList';
 
 import 'tachyons';
 
@@ -12,11 +12,7 @@ import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
-      <Card weight={Math.random()} id={robots[0].id} name={robots[0].name} email={robots[0].email}/>
-      <Card weight={Math.random()}/>
-      <Card weight={Math.random()}/>
-    </div>
+    <CardList robots={ robots } />
   </React.StrictMode>,
   document.getElementById("root"),
 );
