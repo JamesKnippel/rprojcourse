@@ -3,7 +3,7 @@ import Card from './card'
 
 const CardList = ({ robots }) => {
   const cardIterator = robots.map((robot, i) => {
-    return <Card weight={Math.random()} id={robots[i].id} name={robots[i].name} email={robots[i].email} />
+    return <Card key={i} weight={Math.random()} id={robots[i].id} name={robots[i].name} email={robots[i].email} />
   })
     return (
     <div>
