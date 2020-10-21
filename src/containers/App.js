@@ -18,10 +18,16 @@ function App() {
   const [searchfield, setSearchfield] = useState('');
 
   // componentDidMount() {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((response) => response.json())
-  //     .then((users) => this.setState({ robots: users }));
+    // fetch("https://jsonplaceholder.typicode.com/users")
+    //   .then((response) => response.json())
+    //   .then((users) => this.setState({ robots: users }));
   // }
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => setRobots(users));
+  }, [searchfield])
 
   const onSearchChange = (event) => {
     setSearchfield(event.target.value);
