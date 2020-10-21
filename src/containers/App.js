@@ -15,19 +15,19 @@ function App() {
   // }
 
   const [robots, setRobots] = useState([]);
-  const [searchfield, setSearchfield] = useState('');
+  const [searchfield, setSearchfield] = useState("");
 
   // componentDidMount() {
-    // fetch("https://jsonplaceholder.typicode.com/users")
-    //   .then((response) => response.json())
-    //   .then((users) => this.setState({ robots: users }));
+  // fetch("https://jsonplaceholder.typicode.com/users")
+  //   .then((response) => response.json())
+  //   .then((users) => this.setState({ robots: users }));
   // }
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((users) => setRobots(users));
-  }, [])
+      .then((users) => { setRobots(users) });
+  }, []);
 
   const onSearchChange = (event) => {
     setSearchfield(event.target.value);
@@ -42,7 +42,7 @@ function App() {
   ) : (
     <div className="tc">
       <h1> RoboFriends </h1>
-      <SearchBox searchChange={onSearchChange()} />
+      <SearchBox searchChange={onSearchChange} />
       <Scroll>
         <ErrorBoundary>
           <CardList robots={filteredRobots} />
