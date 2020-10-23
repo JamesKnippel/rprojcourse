@@ -1,14 +1,31 @@
 import React, { useState, useEffect } from "react";
 
-// Redux
-import { connect } from "react-redux";
-import { setSearchField } from "../redux/actions";
 
 // Components
 import CardList from "../components/CardList";
 import ErrorBoundary from "../ErrorBoundary";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
+
+
+// Redux
+import { connect } from "react-redux";
+import { setSearchField } from "../redux/actions";
+
+ // paints the props according to redux store
+  const mapStateToProps = (state) => {
+    return {
+      searchField: state.searchRobots.searchField,
+    };
+  };
+
+  // Launches an action or function containing an action via event.
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    };
+  };
+
 
 function App(props) {
   // constructor() {
@@ -24,20 +41,6 @@ function App(props) {
   //   .then((response) => response.json())
   //   .then((users) => this.setState({ robots: users }));
   // }
-
-  // paints the props according to redux store
-  const mapStateToProps = (state) => {
-    return {
-      searchField: state.searchRobots.searchField,
-    };
-  };
-
-  // Launches an action or function containing an action via event.
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
-    };
-  };
 
   const [robots, setRobots] = useState([]);
   const [searchfield, setSearchfield] = useState("");
