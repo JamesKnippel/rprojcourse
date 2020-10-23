@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 
 // Redux
 import { Provider, connect } from "react-redux";
-import { createStore } from "redux";
+import { createLogger } from 'redux-logger';
+import { createStore, applyMiddleware } from "redux";
 import { searchRobots } from "./redux/reducers";
 
 // Global Styling
@@ -17,7 +18,8 @@ import App from "./containers/App";
 // Misc
 import * as serviceWorker from "./serviceWorker";
 
-const store = createStore(searchRobots);
+const logger = createLogger;
+const store = createStore(searchRobots, applyMiddleware(logger));
 
 ReactDOM.render(
   <React.StrictMode>
