@@ -41,28 +41,6 @@ class App extends Component {
       .then((users) => this.setState({ robots: users }));
   };
 
-  // const [searchfield, setSearchfield] = useState("");
-  // const onSearchChange = (event) => {
-  //   setSearchfield(event.target.value);
-  // };
-  // const [searchField] = useState(props.searchField);
-  // const [onSearchChange] = useState(props.onSearchChange);
-  // const [robots, setRobots] = useState([]);
-  // const [count, setCount] = useState(0);
-
-  // useEffect functions identically to componentDidMount() within function components if you add an empty array[] as the second arg in the callback
-  // monitor and manipulate state [robots, searchfield] or use nothing []
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((response) => response.json())
-  //     .then((users) => {
-  //       setRobots(users);
-  //     });
-  //   // console.log(props);
-  // }, [count, props.store]); // Only run this fetch if count changes
-  // }
-
-  
   render() {
     const { robots } = this.state;
     const { searchField, onSearchChange } = this.props;
