@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // Redux
-import { Provider, Connect } from "react-redux";
+import { Provider, connect } from "react-redux";
 import { createStore } from "redux";
 import { searchRobots } from "./redux/reducers";
 
