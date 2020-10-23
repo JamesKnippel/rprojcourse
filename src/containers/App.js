@@ -15,13 +15,23 @@ function App() {
   // }
 
   const [robots, setRobots] = useState([]);
-  const [searchfield, setSearchfield] = useState('');
+  const [searchfield, setSearchfield] = useState("");
+  const [count, setCount] = useState(0);
 
   // componentDidMount() {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((response) => response.json())
-  //     .then((users) => this.setState({ robots: users }));
+  // fetch("https://jsonplaceholder.typicode.com/users")
+  //   .then((response) => response.json())
+  //   .then((users) => this.setState({ robots: users }));
   // }
+
+  // useEffect functions identically to componentDidMount() within function components if you add an empty array[] as the second arg in the callback
+  // monitor and manipulate state [robots, searchfield] or use nothing []
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => { setRobots(users) });
+    console.log(count)
+  }, [count]); // Only run this fetch if count changes
 
   const onSearchChange = (event) => {
     setSearchfield(event.target.value);
@@ -35,8 +45,9 @@ function App() {
     <h1>Loading...</h1>
   ) : (
     <div className="tc">
-      <h1> RoboFriends </h1>
-      <SearchBox searchChange={onSearchChange()} />
+        <h1> RoboFriends </h1>
+        <button onClick={()=>setCount(count+1)}>Click Me!</button>
+      <SearchBox searchChange={onSearchChange} />
       <Scroll>
         <ErrorBoundary>
           <CardList robots={filteredRobots} />
