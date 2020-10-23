@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // Redux
-import { Provider, connect } from "react-redux";
+import { Provider } from "react-redux";
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware } from "redux";
 import { searchRobots } from "./redux/reducers";
@@ -18,7 +18,7 @@ import App from "./containers/App";
 // Misc
 import * as serviceWorker from "./serviceWorker";
 
-const logger = createLogger;
+const logger = createLogger();
 const store = createStore(searchRobots, applyMiddleware(logger));
 
 ReactDOM.render(
