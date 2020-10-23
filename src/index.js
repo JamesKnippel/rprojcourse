@@ -1,17 +1,27 @@
+// System Imports
 import React from "react";
 import ReactDOM from "react-dom";
+
+// Redux
+import { Provider, Connect } from 'react-redux';
+import { createStore, } from 'redux';
+import { searchRobots } from "./redux/reducers";
+
+// Global Styling 
 import "./index.scss";
-
-import App from './containers/App';
-
 import 'tachyons';
 
+// Components
+import App from './containers/App';
 
+// Misc
 import * as serviceWorker from "./serviceWorker";
+
+const store = createStore(searchRobots);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App store={store}/>
   </React.StrictMode>,
   document.getElementById("root"),
 );
