@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware } from "redux";
 import { searchRobots } from "./redux/reducers";
+import thunkMiddleware from 'redux-thunk';
+
 
 // Global Styling
 import "./index.scss";
@@ -19,7 +21,7 @@ import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 
 const logger = createLogger();
-const store = createStore(searchRobots, applyMiddleware(logger));
+const store = createStore(searchRobots, applyMiddleware(thunkMiddleware, logger));
 
 ReactDOM.render(
   <React.StrictMode>
