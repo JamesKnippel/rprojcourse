@@ -33,7 +33,7 @@ function App(props) {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((users) => { setRobots(users) });
-    console.log(count, props.store)
+    console.log(count, props.store.getState())
   }, [count, props.store]); // Only run this fetch if count changes
 
   const onSearchChange = (event) => {

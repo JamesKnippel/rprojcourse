@@ -3,16 +3,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // Redux
-import { Provider, Connect } from 'react-redux';
-import { createStore, } from 'redux';
+import { Provider, Connect } from "react-redux";
+import { createStore } from "redux";
 import { searchRobots } from "./redux/reducers";
 
-// Global Styling 
+// Global Styling
 import "./index.scss";
-import 'tachyons';
+import "tachyons";
 
 // Components
-import App from './containers/App';
+import App from "./containers/App";
 
 // Misc
 import * as serviceWorker from "./serviceWorker";
@@ -21,7 +21,9 @@ const store = createStore(searchRobots);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App store={store}/>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root"),
 );
