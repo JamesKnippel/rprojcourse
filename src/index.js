@@ -1,17 +1,36 @@
+// System Imports
 import React from "react";
 import ReactDOM from "react-dom";
+
+
+
+// Global Styling
 import "./index.scss";
+import "tachyons";
 
-import App from './containers/App';
+// Components
+import App from "./containers/App";
 
-import 'tachyons';
-
-
+// Misc
 import * as serviceWorker from "./serviceWorker";
+
+// Redux
+import { Provider } from "react-redux";
+import { createLogger } from 'redux-logger';
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import { searchRobots, requestRobots } from "./redux/reducers";
+import thunkMiddleware from 'redux-thunk';
+
+// Redux Variables
+const rootReducer = combineReducers({ searchRobots, requestRobots });
+const logger = createLogger();
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root"),
 );
